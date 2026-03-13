@@ -157,7 +157,7 @@ def show_quiz():
     if st.session_state.quiz_result:
         mbti   = st.session_state.quiz_result
         color  = GROUP_COLORS[mbti]
-        avatar = os.path.join(AVATAR_PATH, f"{mbti}.png")
+        avatar = os.path.join(AVATAR_PATH, f"{mbti.lower()}.png")
 
         st.markdown("### 🎉 Your ideal companion is...")
         st.markdown(" ")
@@ -289,7 +289,7 @@ def show_home():
     cols = st.columns(4)
 
     for i, (mbti, desc) in enumerate(MBTI_TYPES.items()):
-        avatar_path = os.path.join(AVATAR_PATH, f"{mbti}.png")
+        avatar_path = os.path.join(AVATAR_PATH, f"{mbti.lower()}.png")
         color = GROUP_COLORS[mbti]
 
         with cols[i % 4]:
@@ -329,7 +329,7 @@ def show_home():
 def show_chat():
     mbti          = st.session_state.selected_mbti
     desc          = MBTI_TYPES[mbti]
-    avatar_path   = os.path.join(AVATAR_PATH, f"{mbti}.png")
+    avatar_path   = os.path.join(AVATAR_PATH, f"{mbti.lower()}.png")
     color         = GROUP_COLORS[mbti]
     system_prompt = MBTI_PROMPTS[mbti]["prompt"]
 
